@@ -58,21 +58,18 @@ public class Day19 {
 	}
 	
 	public static Direction switchDirection(char[][] grid, int[] coords, Direction currentDirection) {
-		// who doesn't love complex conditionals, but hey it works
-		if((!currentDirection.equals(Direction.DOWN) && !currentDirection.equals(Direction.UP)) 
-				&& (coords[1] < grid.length && coords[1] > 0)) {
+		if((!currentDirection.equals(Direction.DOWN) && !currentDirection.equals(Direction.UP))) {
 			if(grid[coords[1]+1][coords[0]] == '|') {
 				return Direction.DOWN;
-			} else if(grid[coords[1]-1][coords[0]] == '|') {
+			} else {
 				return Direction.UP;
 			}
 		}
 
-		if((!currentDirection.equals(Direction.LEFT) && !currentDirection.equals(Direction.RIGHT)) 
-				&& (coords[0] > 0 && coords[0] < grid[coords[1]].length)) {
+		if((!currentDirection.equals(Direction.LEFT) && !currentDirection.equals(Direction.RIGHT))) {
 			if(grid[coords[1]][coords[0]-1] == '-') {
 				return Direction.LEFT;
-			} else if(grid[coords[1]][coords[0]+1] == '-') {
+			} else {
 				return Direction.RIGHT;
 			}
 		}
