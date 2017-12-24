@@ -1,0 +1,32 @@
+set b 65 			// b = 65
+set c b  			// c = 65
+jnz a 2  			// if(a != 0) { skip next }
+jnz 1 5  			// if((a == 0) != 0) { skip 4 }
+mul b 100			// next 4 lines sets b to 106500
+sub b -100000		// and c to 123500
+set c b
+sub c -17000
+set f 1				// f = 1
+set d 2				// d = 2
+set e 2				// e = 2
+set g d				// g = 2
+mul g e				// g *= e (starts at 4)
+sub g b				// g -= b (starts at 106500)
+jnz g 2				// if(g != 0) { skip 1 }
+set f 0				// f = 0
+sub e -1			// e += 1
+set g e				// g = e
+sub g b				// g -= b
+jnz g -8			// if(g != 0) { goto 12 }
+sub d -1			// d += 1
+set g d				// g = d
+sub g b				// g -= 106500
+jnz g -13			// if(g != 0) { goto 11 }
+jnz f 2				// if(f != 0) { goto 27 }
+sub h -1			// h += 1
+set g b				// g = b
+sub g c				// g -= 123500
+jnz g 2				// if(g != 0) { goto 31 }
+jnz 1 3				// end
+sub b -17			// b += 17
+jnz 1 -23			// goto 9
